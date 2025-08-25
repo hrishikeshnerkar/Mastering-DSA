@@ -28,5 +28,3 @@ Most problems fall within the **easy to medium** difficulty range, and once I un
 
 I’m actively uploading **Java-based solutions** daily as I work through a wide range of algorithm problems. Each problem is categorized by topic, and I highlight typical examples that serve as strong foundations for mastering each concept. As I progress, I apply these techniques to increasingly complex challenges to deepen my understanding.
 
-While I won’t be sharing raw code explanations here, I encourage checking out the discussion sections of each problem—there’s a wealth of clean and insightful solutions contributed by the community.
-
