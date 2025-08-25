@@ -26,6 +26,4 @@ Most problems fall within the **easy to medium** difficulty range, and once I un
 
 ## 🔍 My Strategy
 
-I’ll be classifying problems into categories and identifying typical example problems for each topic. These examples will serve as a starting point to build a strong foundation. Once I’m confident with the basics, I’ll apply those techniques to more complex problems.
-
-I won’t be sharing my raw code here, but I highly recommend checking out the discussion sections of each problem—there are many clean and insightful solutions contributed by the community.
+I’m actively uploading solutions daily as I work through a wide range of algorithm problems. Each problem is categorized by topic, and I highlight typical examples that serve as strong foundations for mastering each concept. As I progress, I apply these techniques to increasingly complex challenges to deepen my understanding. 
