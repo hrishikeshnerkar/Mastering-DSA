@@ -1,0 +1,91 @@
+// First Solution
+// Brute-force optimized approach using sorting and two-pointer technique.
+
+class Solution {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        //Base Conditions
+        List<List<Integer>> result = new ArrayList<>();
+        int size = nums.length;
+        if(nums == null || size < 4){
+            return result;
+        }
+        Arrays.sort(nums);
+        //Logic
+        for(int i = 0; i< size - 3; i++){
+            if(i > 0 && nums[i] == nums[i-1]) continue; //Check for duplicates
+            for(int j = i+1; j< size-2; j++){
+                if(j > i+1 && nums[j] == nums[j-1]) continue; //Check for duplicates
+                
+                int left = j+1, right = size - 1;
+                while(left < right){
+                    long sum =(long) nums[i]+ nums[j]+ nums[right] + nums[left];
+
+                    if(sum == target){
+                        List<Integer> res = new ArrayList<>();
+                        res.add(nums[i]);res.add(nums[j]); res.add(nums[left]); res.add(nums[right]);
+                        result.add(res);
+                        left++;
+                        right--;
+                        //For duplicates 
+                        while(left < right && nums[left] == nums[left-1]) left++;
+                        while(left < right && nums[right] == nums[right+1]) right--;
+                    }else if(sum < target){
+                        left++;
+                    }else{
+                        right--;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+}
+
+
+
+//Second Solution
+// Skips iterations where the smallest or largest possible sums cannot meet the target.
+
+class Solution {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        //Base logic
+        List<List<Integer>> result = new ArrayList<>();
+        int n = nums.length;
+        if (nums == null || n < 4) return result;
+
+        Arrays.sort(nums);
+        // Logic
+        for (int i = 0; i < n - 3; i++) {
+            // Terminations
+            if ((long) nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3] > target) break;
+            if ((long) nums[i] + nums[n - 1] + nums[n - 2] + nums[n - 3] < target) continue;
+
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+
+            for (int j = i + 1; j < n - 2; j++) {
+                if (j > i + 1 && nums[j] == nums[j - 1]) continue;
+
+                int left = j + 1, right = n - 1;
+
+                while (left < right) {
+                    long sum = (long) nums[i] + nums[j] + nums[left] + nums[right];
+
+                    if (sum == target) {
+                        result.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
+                        left++;
+                        right--;
+
+                        while (left < right && nums[left] == nums[left - 1]) left++;
+                        while (left < right && nums[right] == nums[right + 1]) right--;
+                    } else if (sum < target) {
+                        left++;
+                    } else {
+                        right--;
+                    }
+                }
+            }
+        }
+
+        return result;
+    }
+}
