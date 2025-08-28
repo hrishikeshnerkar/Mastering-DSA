@@ -1,0 +1,39 @@
+class Solution {
+    public int threeSumMulti(int[] arr, int target) {
+        long[] count = new long[101];
+        int MOD = 1_000_000_007;
+
+        for (int num : arr) {
+            count[num]++;
+        }
+
+        long result = 0;
+
+        for (int i = 0; i <= 100; i++) {
+            for (int j = i; j <= 100; j++) {
+                int k = target - i - j;
+                if (k < 0 || k > 100) continue;
+
+                if (i == j && j == k) {
+                    result += count[i] * (count[i] - 1) * (count[i] - 2) / 6;
+                } else if (i == j && j != k) {
+                    result += count[i] * (count[i] - 1) / 2 * count[k];
+                } else if (i < j && j < k) {
+                    result += count[i] * count[j] * count[k];
+                }
+            }
+        }
+        return (int)(result % MOD);
+    }
+}
+
+// Explanation
+Count frequencies of each number in arr.
+and compute k = target - i - j.
+Handle three cases:
+All numbers are the same: (i == j == k)
+Two numbers are the same: (i == j != k)
+All numbers are different: (i < j < k)
+Use combinatorics to count valid tuples:
+nC3 = n*(n-1)*(n-2)/6
+nC2 = n*(n-1)/2
