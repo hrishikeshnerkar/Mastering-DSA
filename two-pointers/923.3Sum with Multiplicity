@@ -28,12 +28,12 @@ class Solution {
 }
 
 // Explanation
-Count frequencies of each number in arr.
+-Count frequencies of each number in arr.
 and compute k = target - i - j.
-Handle three cases:
-All numbers are the same: (i == j == k)
-Two numbers are the same: (i == j != k)
-All numbers are different: (i < j < k)
-Use combinatorics to count valid tuples:
-nC3 = n*(n-1)*(n-2)/6
-nC2 = n*(n-1)/2
+-Handle three cases:
+    1.All numbers are the same: (i == j == k)
+    2.Two numbers are the same: (i == j != k)
+    3.All numbers are different: (i < j < k)
+-Use combinatorics to count valid tuples:
+    1.nC3 = n*(n-1)*(n-2)/6
+    2.nC2 = n*(n-1)/2
