@@ -28,3 +28,13 @@ Most problems fall within the **easy to medium** difficulty range, and once I un
 
 I’m actively uploading **Java-based solutions** daily as I work through a wide range of algorithm problems. Each problem is categorized by topic, and I highlight typical examples that serve as strong foundations for mastering each concept. As I progress, I apply these techniques to increasingly complex challenges to deepen my understanding.
 
+---
+
+## 👤 Author
+
+**Hrishikesh**  
+Full-stack developer passionate about building secure, scalable, and well-documented web applications.  
+Specialized in Spring Boot, React, and modern authentication flows.  
+Connect with me on [LinkedIn](https://www.linkedin.com/in/hrishikesh015)
+
+---
