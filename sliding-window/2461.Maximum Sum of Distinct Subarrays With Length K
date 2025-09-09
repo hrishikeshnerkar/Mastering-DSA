@@ -1,0 +1,17 @@
+class Solution {
+    public long maximumSubarraySum(int[] nums, int k) {
+        HashMap<Integer, Integer> hs = new HashMap<>();
+        long curSum = 0, maxSum = 0;
+        for(int i=0; i<nums.length; i++){
+            curSum += nums[i];
+            hs.put(nums[i], hs.getOrDefault(nums[i],0)+1);
+            if(i >= k-1){
+                if(hs.size() == k) maxSum = Math.max(maxSum, curSum);
+                curSum -= nums[i-k+1];
+                hs.put(nums[i-k+1], hs.get(nums[i-k+1])-1); 
+                if(hs.get(nums[i-k+1]) == 0) hs.remove(nums[i-k+1]);
+            }
+        }
+        return maxSum;
+    }
+}
