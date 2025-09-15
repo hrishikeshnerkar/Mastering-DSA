@@ -1,0 +1,24 @@
+class Solution {
+    public int subarraysWithKDistinct(int[] nums, int k) {
+        return subArrays(nums, k) - subArrays(nums , k-1);
+    }
+
+    private int subArrays(int[] nums, int target){
+        int left=0, right=0, cnt=0;
+        Map<Integer, Integer> hp = new HashMap<>();
+        
+        while( right < nums.length){
+            hp.put(nums[right], hp.getOrDefault(nums[right],0)+1);
+            while(hp.size() > target){
+                hp.put(nums[left], hp.get(nums[left])-1);
+                if(hp.get(nums[left]) == 0){
+                    hp.remove(nums[left]);
+                }
+                left++;
+            }
+            cnt += (right - left + 1);
+            right++;
+        }
+        return cnt;
+    }
+}

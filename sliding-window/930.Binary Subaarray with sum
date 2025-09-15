@@ -1,0 +1,24 @@
+class Solution {
+    public int numSubarraysWithSum(int[] nums, int goal) {
+        return countSubarraysWithSum(nums, goal) - countSubarraysWithSum(nums, goal - 1);
+    }
+
+    private int countSubarraysWithSum(int[] nums, int target) {
+        int left = 0, right = 0, sum = 0, count = 0;
+        if (target < 0) return 0;
+
+        while (right < nums.length) {
+            sum += nums[right];
+
+            while (sum > target) {
+                sum -= nums[left];
+                left++;
+            }
+
+            count += right - left + 1;
+            right++;
+        }
+
+        return count;
+    }
+}
